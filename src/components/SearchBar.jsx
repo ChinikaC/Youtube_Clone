@@ -11,9 +11,18 @@ const SearchBar = () => {
         onSubmit={() => {}}
         sx={{
             borderRadius: 20,
+            border: 'px solid #e3e3e3',
+            pl: 2,
+            boxShadow: 'none',
+            mr: {sm: 5}
         }}
         >
-            TEST
+            <input 
+            className="search-bar"
+            placeholder="Search..."
+            value=""
+            onChange={() => {}}
+            />
     </Paper>
   )
 }
