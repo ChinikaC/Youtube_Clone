@@ -19,7 +19,7 @@ const Sidebar = () => (
           >
           <span style={{color: category.name === selectedCategory ? 'white' : 'red',
         marginRight : '15px'}}>{category.icon}</span>
-          <span>{category.name}</span>
+          <span style={{ opacity: category.name === selectedCategory ? '1' : '0.8'}}>{category.name}</span>
         </button>
       ))}
     </Stack>
