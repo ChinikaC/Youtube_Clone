@@ -1,9 +1,7 @@
 import { Stack } from '@mui/material';
 import { categories } from '../utils/constants';
 
-const selectedCategory = 'New';
-
-const Sidebar = () => (
+const Sidebar = ({selectedCategory, setSelectedCatergory}) => (
   <Stack
     direct="row"
     sx={{

@@ -11,10 +11,8 @@ const Feed = () => {
 
   useEffect(() => {
     fetchFromAPI(`search?part=snippet&q=
-    ${selectedCategory}`) // q= query
-
-  }, []); // keeping empty so this code in this function will only run
-  // everytime the page reloads
+    ${selectedCategory}`); // q= query
+  }, [selectedCategory]); 
 
   return (
     <Stack sx={{ 
@@ -27,7 +25,10 @@ const Feed = () => {
     <Box sx={{ height: { sx: 'auto', md: '92vh'}, 
     borderRight: '1px solid #3d3d3d', 
   px: { sx: 0, md: 2}}}>
-    <Sidebar></Sidebar>
+    <Sidebar
+    selectedCategory={selectedCategory}
+    setSelectedCategory={setSelectedCategory}>
+    </Sidebar>
 
     <Typography className="copyright"
     variant="body2" sx={{mt: 1.5, color: '#fff'}}>
