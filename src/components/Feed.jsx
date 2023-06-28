@@ -6,6 +6,14 @@ import { fetchFromAPI } from '../utils/fetchFromAPI';
 
 
 const Feed = () => {
+
+  useEffect(() => {
+    fetchFromAPI(`search?part=snippet&q=
+    ${selectedCategory}`) // q= query
+
+  }, []); // keeping empty so this code in this function will only run
+  // everytime the page reloads
+
   return (
     <Stack sx={{ 
       flexDirection: { sx: 
