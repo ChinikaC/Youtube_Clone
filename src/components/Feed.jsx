@@ -7,6 +7,8 @@ import { fetchFromAPI } from '../utils/fetchFromAPI';
 
 const Feed = () => {
 
+  const [selectedCategory, setSelectedCategory] = useState('New');
+
   useEffect(() => {
     fetchFromAPI(`search?part=snippet&q=
     ${selectedCategory}`) // q= query
