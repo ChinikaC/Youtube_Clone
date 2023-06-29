@@ -1,9 +1,8 @@
 import { useState, useEffect} from 'react'
 import { Box, Stack, Typography} from '@mui/material';
+import { fetchFromAPI } from '../utils/fetchFromAPI';
 import Sidebar from './Sidebar';
 import Videos from './Videos';
-import { fetchFromAPI } from '../utils/fetchFromAPI';
-
 
 const Feed = () => {
 
@@ -11,8 +10,9 @@ const Feed = () => {
 
   useEffect(() => {
     fetchFromAPI(`search?part=snippet&q=
-    ${selectedCategory}`); // q= query
+    ${selectedCategory}`); 
   }, [selectedCategory]); 
+  {/* q = query */}
 
   return (
     <Stack sx={{ 
