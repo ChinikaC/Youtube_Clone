@@ -2,7 +2,7 @@ import React from 'react';
 
 const ChannelCard = () => {
     return (
-<div></div>
+<div>ChannelCard</div>
     )
 }
 
