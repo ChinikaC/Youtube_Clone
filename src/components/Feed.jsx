@@ -19,9 +19,8 @@ const Feed = () => {
   return (
     <Stack sx={{ flexDirection: { sx:
     "coloumn", md: "row"} }}>
-
       <Box sx={{
-        height: { sx: 'auto', md: '92vh' },
+        height: { sx: 'auto', md: '1090vh' },
         borderRight: '1px solid #3d3d3d',
         px: { sx: 0, md: 2 }
       }}>
@@ -31,7 +30,7 @@ const Feed = () => {
         </Sidebar>
 
         <Typography className="copyright"
-          variant="body2" sx={{ mt: 1.5, color: '#fff' }}>
+          variant="body2" sx={{ mt: 50, color: '#fff' }}>
           Copyright 2023 CC Media
         </Typography>
 
@@ -49,4 +48,4 @@ const Feed = () => {
   )
 }
 
-export default Feed
+export default Feed;
