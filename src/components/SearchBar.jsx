@@ -3,16 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import { Paper, IconButton } from '@mui/material';
 import { Search } from '@mui/icons-material'
 
-
 const SearchBar = () => {
-
-  useState [searchTerm, setSearchTerm] = useState('');
+const [searchTerm, setSearchTerm] = useState('');
+const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // have to say the above in React applications because when we submit
     // a form, it usually reloads the page, in reactjs we don't want it to do that
     // so as it is the default behaviour of the browser, we need to write e.preventDefault()
+  
+    if(searchTerm){
+      navigate(`/search/${searchTerm}`);
+      setSearchTerm('');
+    }
   }
 
   return (
