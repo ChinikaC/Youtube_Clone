@@ -9,14 +9,16 @@ import { fetchFromAPI } from '../utils/fetchFromAPI';
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
+  const [ videos, setVideos] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`) // this gives the video detail data
     .then((data) => setVideoDetail(data.items[0])); // 0 means only the first video
 
-  }, [id]);
-  // this immediately fetches the data as soon as the component loads
+    fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`)
+    .then((data) => setVideos(data.items));
+  }, [id]); // this immediately fetches the data as soon as the component loads
 
   if(!videoDetail?.snippet) return 'Loading...';
 
