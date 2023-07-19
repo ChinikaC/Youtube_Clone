@@ -18,6 +18,8 @@ const VideoDetail = () => {
   }, [id]);
   // this immediately fetches the data as soon as the component loads
 
+  if(!videoDetail?.snippet) return 'Loading...';
+
   const { snippet: { title, channelId, channelTitle }, 
   statistics: { viewCount, likeCount} } = videoDetail; // object destructuring 
 
@@ -31,8 +33,13 @@ const VideoDetail = () => {
             <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
               {title}
             </Typography>
-            <Stack>
-              
+            <Stack direction="row" justifyContent="space-between" sx={{ color: '#fff'}} py={1} px={2}>
+              <Link to={`/channel/${channelId}`}>
+                <Typography>
+                  {channelTitle}
+                </Typography>
+              </Link>
+
             </Stack>
 
           </Box>
