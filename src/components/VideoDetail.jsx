@@ -40,6 +40,12 @@ const VideoDetail = () => {
                   <CheckCircle sx={{ fontSize: '12px', color: 'gray', ml: '5px'}} />
                 </Typography>
               </Link>
+              <Stack>
+                <Typography variant="body1" sx={{ opacity: 0.7}}>
+                  {viewCount} views
+
+                </Typography>
+              </Stack>
 
             </Stack>
 
