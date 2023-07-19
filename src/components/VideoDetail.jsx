@@ -8,12 +8,22 @@ import { Video } from './';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
 
 const VideoDetail = () => {
+  const [videoDetail, setVideoDetail] = useState(null);
+  const{ id } = useParams();
+
+  useEffect(() => {
+    fetchFromAPI(`videos?part=snippet,statistics&id=${id}`) // this gives the video detail data
+    .then((data) => setVideoDetail(data.items[0])); // 0 means only the first video
+
+  }, [id]);
+  // this immediately fetches the data as soon as the component loads
+
   return (
     <Box minHeight="95vh">
       <Stack direction={{ xs: 'column', md: 'row'}}>
         <Box flex={1}>
           <Box sx={{ width: '100%', position: 'sticky', top: '86px'}}>
-            <ReactPlayer/>
+            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} />
 
           </Box>
 
