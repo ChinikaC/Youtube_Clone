@@ -13,10 +13,12 @@ const VideoDetail = () => {
 
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`) // this gives the video detail data
-    .then((data) => setVideoDetail(data.items[0])); // 0 means only the first video
+    .then((data) => setVideoDetail(data.items[0])) // 0 means only the first video
 
   }, [id]);
   // this immediately fetches the data as soon as the component loads
+
+  const { snippet: { title } } = videoDetail; // object destructuring 
 
   return (
     <Box minHeight="95vh">
@@ -26,7 +28,7 @@ const VideoDetail = () => {
             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} 
             className="react-player" controls />
             <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
-              {videoDetail.snippet.title}
+              {title}
             </Typography>
 
           </Box>
