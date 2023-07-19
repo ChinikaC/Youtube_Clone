@@ -42,7 +42,7 @@ const VideoDetail = () => {
               </Link>
               <Stack>
                 <Typography variant="body1" sx={{ opacity: 0.7}}>
-                  {viewCount} views
+                  {parseInt(viewCount).toLocaleString()} views
 
                 </Typography>
               </Stack>
