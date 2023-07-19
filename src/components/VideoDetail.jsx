@@ -9,16 +9,17 @@ import { fetchFromAPI } from '../utils/fetchFromAPI';
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
-  const{ id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`) // this gives the video detail data
-    .then((data) => setVideoDetail(data.items[0])) // 0 means only the first video
+    .then((data) => setVideoDetail(data.items[0])); // 0 means only the first video
 
   }, [id]);
   // this immediately fetches the data as soon as the component loads
 
-  const { snippet: { title } } = videoDetail; // object destructuring 
+  const { snippet: { title, channelId, channelTitle }, 
+  statistics: { viewCount, likeCount} } = videoDetail; // object destructuring 
 
   return (
     <Box minHeight="95vh">
@@ -30,6 +31,9 @@ const VideoDetail = () => {
             <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
               {title}
             </Typography>
+            <Stack>
+              
+            </Stack>
 
           </Box>
 
